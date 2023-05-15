@@ -32,7 +32,9 @@ namespace Evaluation_Manager
             }
             else
             {
-                if (txtUsername.Text == username && txtPassword.Text == password)
+                LoggedTeacher = TeacherRepository.GetTeacher(txtUsername.Text);
+
+                if (LoggedTeacher != null && LoggedTeacher.Passwrt == txtPasswrt.Text)
                 {
                     FrmStudents frmStudents = new FrmStudents();
                     Hide();
@@ -44,6 +46,10 @@ namespace Evaluation_Manager
                     MessageBox.Show("Krivi podaci!", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e) {
+
         }
     }
 }
